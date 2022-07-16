@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-  const [text, setText] = useState("Enter Text Here2");
+  const [text, setText] = useState('');
   // text = "new text" // wrong way to set text
 
   const handleUpClick = () => {
@@ -15,6 +15,12 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     setText(newText);
   };
+
+  const handleClearClick = () => {
+    let newText = '';
+    setText(newText);
+  };
+  
   const hanldeOnChange = (event) => {
     // console.log("hanldeOnChange fired");
     setText(event.target.value);
@@ -34,14 +40,9 @@ export default function TextForm(props) {
           ></textarea>
         </div>
 
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
-          {" "}
-          Convert to Upper Case
-        </button>
-        <button className="btn btn-primary" onClick={handleLwClick}>
-          {" "}
-          Convert to Lower Case
-        </button>
+        <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Upper Case</button>
+        <button className="btn btn-primary mx-1" onClick={handleLwClick}>Convert to Lower Case</button>
+        <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
       </div>
       <div className="container my-3">
             <h2>Your Text Summary</h2>

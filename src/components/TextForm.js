@@ -41,7 +41,7 @@ export default function TextForm(props) {
   
   return (
     <>
-      <div className={"container"}>
+      <div className="container" style={{color: props.mode==='dark' ? 'white' : '#042743'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -50,6 +50,7 @@ export default function TextForm(props) {
             rows="8"
             value={text}
             onChange={hanldeOnChange}
+            style={{backgroundColor: props.mode==='dark' ? 'grey' : 'white', color: props.mode==='dark' ? 'white' : '#042743'}}
           ></textarea>
         </div>
 
@@ -59,12 +60,12 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
         <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Space</button>
       </div>
-      <div className="container my-3">
+      <div className="container my-3" className="container" style={{color: props.mode==='dark' ? 'white' : '#042743'}}>
             <h2>Your Text Summary</h2>
             <p>{text.split(" ").length} words and {text.length} charatres</p>
             <p>{0.008 * text.split(" ").length} Minutes read </p>
             <h2>Preview</h2>
-            <p>{text}</p>
+            <p>{text.length > 0 ? text : "Enter something to preview it here"}</p>
       </div>
     </>
   );

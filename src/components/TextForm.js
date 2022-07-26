@@ -5,14 +5,12 @@ export default function TextForm(props) {
   // text = "new text" // wrong way to set text
 
   const handleUpClick = () => {
-    // console.log("Upper case was clicked: " + text);
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to uppercase!", "success");
   };
 
   const handleLwClick = () => {
-    // console.log("Lower case was clicked: " + text);
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to lowercase!", "success");
@@ -25,14 +23,12 @@ export default function TextForm(props) {
   };
   
   const hanldeOnChange = (event) => {
-    // console.log("hanldeOnChange fired");
+
     setText(event.target.value);
   };
 
   const handleCopy = () => {
-    var text = document.getElementById("myBox")
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied to clipboard!", "success");
   }
 
@@ -68,6 +64,8 @@ export default function TextForm(props) {
             <h2>Your Text Summary</h2>
             <p>{text.split(" ").filter((element) => {return element.length !== 0}).length} words and {text.length} charatres</p>
             <p>{0.008 * text.split(" ").filter((element) => {return element.length !== 0}).length} Minutes read </p>
+
+          
             <h2>Preview</h2>
             <p>{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
